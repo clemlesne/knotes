@@ -1,0 +1,34 @@
+block vars
+
+include ../components/head
+
+body(class="page--#{pageClass}")
+	//- Javascript test
+	<!--[if lt IE 8]>
+	p.browserupgrade You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.
+	<![endif]-->
+
+	header
+		//- Responsive menu
+		include ../components/menu
+
+	//- Remodal bg
+	div.remodal-bg
+	
+	//- Container
+	div#container-global.container-global
+		div.container-global__sub
+			//- Top bar
+			include ../components/navbar
+
+			if navBarActiveId
+				script $("#navbar__entries .navbar__entry:eq(#{navBarActiveId})").addClass('navbar__entry--active');
+
+			div.container
+				div.container__sub
+					block content
+
+		footer
+			include ../components/footer
+
+	include ../components/foot

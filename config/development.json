@@ -1,0 +1,43 @@
+{
+  "cookieSecret": "mE<V}_<Y)gj 1rYR6R]Ehv7]Zn3it_iOp]l5m[F4FeA[WzJC",
+
+  "sessionSecrets": [
+    "[h1[Y9El<e59oD rzcZ]IoJMev{YHo_scH9-SEai92L-m98Z",
+    "smBvU-BnI-}ZfZWH 3QNICD_X(Z7 I4PW(472Iux-p4Ey3>R",
+    "6tAyQIH-iECKr8ah2v89zNflAR94C>U51c mruQ6sV_hW){E",
+    "boQ]59stIPiO2<xbZlgM<j] ]sBJYmbgWJ<kS1G_K]s6h{RY",
+    "}}j7e mwxRr2p2CcMupDCLvkkHs{vQc)-X42W(1lge]erLM>",
+    "qANiD8UjkbU]Z}AlvN V<]ptcM41Iyzc6q9anFG>)vZ NRY{",
+    "OUId)kTLQ4Jgzz4D1QsUYS<) 7Z33-NVX2VbHzltpr1JK9bC",
+    "5K28VkfrKd){yRsbx(a)nZWMmRZAQ4JCUm58)aO_Hu3G5Qyx",
+    "ZkyrBqsGu9bRr6)h6KPcIO6nsUTTic{M]PZcLojevelyeHZx",
+    "Gs3R{ N_<[bbwjtH4OLsolp0vMCo5fM007t38)h1mP6vm-3{"
+  ],
+
+  "db": {
+    "mongoose": {
+      "url": "mongodb://37.59.36.138/lessons",
+      "user": "lessons",
+      "pass": "4-6G4AWnC.x,[4s9'LW2)35/DzLbP9cq"
+    },
+    "redis": {
+      "port": "6379",
+      "host": "materialfaces.io",
+      "password": "s%c`@h{HZE$bu$$C>Ka=(0oAY[6f|w)>"
+    }
+  },
+
+  "auth": {
+    "facebook": {
+      "clientID": "1745539985673872",
+      "clientSecret": "b126613dbd96f4e3336d5984dc893e66",
+      "callbackURL": "http://localhost:3000/auth/facebook/callback"
+    },
+
+    "google": {
+      "clientID": "738889498477-2dr9cqhulve33ulmitf4k1gcrk1r2hoh.apps.googleusercontent.com",
+      "clientSecret": "f0m1cOf0RbZjnPOV5GLKqMqE",
+      "callbackURL": "http://localhost:3000/auth/google/callback"
+    }
+  }
+}

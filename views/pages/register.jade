@@ -1,0 +1,37 @@
+extend ../templates/common/layout
+block vars
+	- var title = 'Register'
+	- var navBarActiveId = 0
+	- var pageClass = 'register'
+
+block content
+	section.page__title
+		div.page__title__container
+			div.page__title__text
+				a(href='#!') Register
+			div.page__title__buttons
+				div.button__container
+					a(href='/account/login').button Login ?
+
+	div.row
+		div(class="6u -3u")
+			section.card.register
+				div.card__container
+					form(action='/auth/local/signup' method='POST').form__container
+						div.card__content
+							div.form
+								fieldset.form__block
+									legend Security
+									div.form__block__sub
+										input(type='text', name='username' placeholder='Username', required, autofocus)
+										input(type='password', name='password' placeholder='Password', required)
+								fieldset.form__block
+									legend Basic informations
+									div.form__block__sub
+										input(type='email', name='email' placeholder='Email', required)
+										input(type='text', name='firstname' placeholder='Firstname', required)
+										input(type='text', name='lastname' placeholder='Lastname', required)
+
+						div.card__action
+							div.button__container
+								button(type='submit') Register

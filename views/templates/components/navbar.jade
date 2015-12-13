@@ -1,0 +1,20 @@
+mixin navbarEntry(name, url, title)
+	if title
+		div.navbar__entry: a.navbar__entry__content(href='#{url}' title='#{title}').tooltip #{name}
+	else
+		div.navbar__entry: a.navbar__entry__content(href='#{url}') #{name}
+
+nav#navbar.navbar
+	div.container
+		div.navbar__container
+			div.navbar__title
+				a(href='/') Lessons
+
+			div#navbar__entries.navbar__entries
+				if isAuthenticated
+					+navbarEntry('My notes', '/notes')
+					+navbarEntry('Hello ' + user.local.name.full, '/account', 'Go to my account')
+					+navbarEntry('Signout', '/account/signout')
+				else
+					+navbarEntry('Login', '/account/login')
+					+navbarEntry('Signup', '/account/signup')

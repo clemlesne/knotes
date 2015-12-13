@@ -1,0 +1,66 @@
+extend ../templates/common/layout
+block vars
+	- var title = 'Index'
+	- var navBarActiveId = 0
+	- var pageClass = 'notes'
+
+block content
+	section.page__title
+		div.page__title__container
+			div.page__title__text
+				p My Notes
+
+	div(data-remodal-id="modal").remodal.notes__modal__delete
+		div.remodal__header
+			div.remodal__header__l
+				p Delete note
+			div.remodal__header__r
+				div.button__container
+					button(data-remodal-action="close")
+		div.remodal__content
+			p Did you realy want to delete this note ? This can not be undone.
+		div.remodal__action
+			div.button__container
+				button(data-remodal-action="cancel").button--dark Cancel
+				button(data-remodal-action="confirm").button--green Delete
+
+	div.row
+		div(class='6u -3u 10u(large) -2u(large) 12u(medium)')
+				section#create.card
+					div.card__container
+						div.card__title
+							p Create a new note
+						form(action='/notes/create' method='POST').form__container
+							div.card__content
+								div.form
+									fieldset.form__block
+										legend Bases information's
+										div.form__block__sub
+											input(type='text', tabindex='1', name='name' placeholder='Nom', required, autofocus)
+											if notes
+												input(type='number', tabindex='2', name='order' placeholder='Order', required, min='0', max='#{notes.length +1}', step='1')
+							div.card__action
+								div.button__container
+									button(type='submit') Create
+
+		div(class='8u -2u 12u(medium)')
+				section#select.card.card--raw
+					div.card__container
+						div.card__title
+							p Note list
+						div.card__content
+							table.table.table--link
+								thead
+									tr
+										th Name
+										th Last update
+										th Action
+								tbody
+									each note in notes
+										tr
+											td: a(href='/notes/#{note._id}')!= note.name
+											td: p!= note.updatedAt.toLocaleDateString() + ', ' + note.updatedAt.toLocaleTimeString()
+											td: div.button__container: a(data-remodal-target='modal' data-nid='#{note._id}').button.notes__delete Delete
+									else
+										tr
+											td(colspan='3') None exist yet !

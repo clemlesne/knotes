@@ -1,0 +1,18 @@
+footer
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/tooltipster/3.3.0/js/jquery.tooltipster.min.js')
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js')
+	script(src='https://cdnjs.cloudflare.com/ajax/libs/remodal/1.0.5/remodal.min.js')
+
+	script.
+		window.REMODAL_GLOBALS = {
+			DEFAULTS: {
+				hashTracking: false
+			}
+		};
+
+	script(src="/js/bottom.js")
+
+	if flash && flash
+		each msgList, msgType in flash
+			each msg in msgList
+				script ntf('#{msgType}', '#{msg}');

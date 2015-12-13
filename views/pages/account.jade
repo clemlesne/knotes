@@ -1,0 +1,61 @@
+extend ../templates/common/layout
+block vars
+	- var title = 'Index'
+	- var navBarActiveId = 0
+
+block content
+	section.page__title
+		div.page__title__container
+			div.page__title__text
+				p Accounts
+
+	div.row
+		div(class='12u')
+			section.card.card--raw
+				div.card__container
+					div.card__title
+						p Types
+					div.card__content
+						table.table.table--multi-head
+							thead
+								tr
+									th
+									th
+									th(colspan='3') Name
+									th(colspan='2') Emails
+									th
+								tr
+									th Provider
+									th Display Name
+									th Family
+									th Given
+									th Middle
+									th Value
+									th Type
+									th Photo URL
+							tbody
+								tr
+									td Local
+									td= user.local.name.full
+									td= user.local.name.last
+									td= user.local.name.first
+									td ---
+									td= user.local.email
+									td account
+									td
+
+								each accountType in user.openid
+									tr
+										td(rowspan='#{accountType.emails.length}')= accountType.provider
+										td(rowspan='#{accountType.emails.length}')= accountType.displayName
+										td(rowspan='#{accountType.emails.length}')= accountType.name.familyName
+										td(rowspan='#{accountType.emails.length}')= accountType.name.givenName
+										td(rowspan='#{accountType.emails.length}')= accountType.name.middleName
+
+										each email in accountType.emails
+											td= email.value
+											td= email.type
+
+										each photo in accountType.photos
+											td
+												img(src='#{photo.value}')

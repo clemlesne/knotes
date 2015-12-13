@@ -1,0 +1,33 @@
+extend ../templates/common/layout
+block vars
+	- var title = 'Login'
+	- var navBarActiveId = 0
+	- var pageClass = 'login'
+
+block content
+	section.page__title
+		div.page__title__container
+			div.page__title__text
+				a(href='#!') Login
+			div.page__title__buttons
+				div.button__container
+					a(href='/account/signup').button Register ?
+					a(href='/auth/facebook').button Login with facebook
+					a(href='/auth/google').button Login with google
+
+	div.row
+		div(class="6u -3u")
+			section.card.login
+				div.card__container
+					form(action='/auth/local/login' method='POST').form__container
+						div.card__content
+							div.form
+								fieldset.form__block
+									legend Login
+									div.form__block__sub
+										input(type='text', name='username' placeholder='Username', required, autofocus)
+										input(type='password', name='password' placeholder='Password', required)
+
+						div.card__action
+							div.button__container
+								button(type='submit') Sign in

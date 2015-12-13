@@ -1,0 +1,17 @@
+mixin menuEntry(name, url)
+	li: a(href="#{url}") #{name}
+
+div.menu__handler: a.menu__handler__button(href="#menu") Menu &#32; &#8226; &#32; &#8226; &#32; &#8226;
+
+nav#menu.menu
+	div.menu__container
+		if isAuthenticated
+			ul.menu__entries
+				+menuEntry('Hello ' + user.local.name.full, '/account')
+				+menuEntry('My notes', '/notes')
+			ul.menu__entries
+				+menuEntry('Signout', '/account/signout')
+		else
+			ul.menu__entries
+				+menuEntry('Login', '/account/login')
+				+menuEntry('Signup', '/account/signup')

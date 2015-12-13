@@ -1,0 +1,5 @@
+.idea
+node_modules
+build
+lessons_app.iml
+newrelic_agent.log
