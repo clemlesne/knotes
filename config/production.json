@@ -31,13 +31,13 @@
     "facebook": {
       "clientID": "1745539985673872",
       "clientSecret": "b126613dbd96f4e3336d5984dc893e66",
-      "callbackURL": "http://klessons.elasticbeanstalk.com/auth/facebook/callback"
+      "callbackURL": "http://knotes.elasticbeanstalk.com/auth/facebook/callback"
     },
 
     "google": {
       "clientID": "738889498477-tvlc6dqu7t4sro8q5prs5bom08oag2q5.apps.googleusercontent.com",
       "clientSecret": "kjleG3dVPOKMa_1BdXJxGgRa",
-      "callbackURL": "http://klessons.elasticbeanstalk.com/auth/google/callback"
+      "callbackURL": "http://knotes.elasticbeanstalk.com/auth/google/callback"
     }
   }
 }
