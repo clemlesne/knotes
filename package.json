@@ -1,6 +1,6 @@
 {
   "name": "knotes",
-  "version": "0.1.5.2",
+  "version": "0.1.5",
   "private": true,
   "scripts": {
     "start": "node server.js"
