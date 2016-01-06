@@ -1,9 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+var path = require('path');
+var notesController = require(path.join(__basedir, 'controllers', 'notesController.js'));
+
+
 router.get('/', function(req, res, next) {
-  res.doRender('pages/index', { title: 'Express' });
+  if(req.isAuthenticated()) {
+    notesController.renderNotesList(req, res, next);
+
+  } else {
+    res.doRender('pages/index');
+  }
 });
 
 module.exports = router;
