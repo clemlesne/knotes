@@ -1,4 +1,5 @@
 module.exports.init = function(callback) {
+  var debug = require('debug')('knotes:app');
   var redis = require('redis');
   var client = redis.createClient(__config.db.redis.port, __config.db.redis.host);
 
@@ -6,7 +7,7 @@ module.exports.init = function(callback) {
     client.on('error', console.error.bind(console, 'Redis connection error: '));
 
     client.on('ready', function() {
-      console.log('Redis default connection open to: ' + __config.db.mongoose.url);
+      debug('Redis default connection open to: ' + __config.db.redis.host + ':' + __config.db.redis.port);
       callback(client);
     });
   };
