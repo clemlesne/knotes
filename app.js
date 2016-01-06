@@ -8,7 +8,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var compress = require('compression');
-var debug = require('debug')('lessons:server');
+var debug = require('debug')('knotes:app');
 
 __basedir = path.resolve(__dirname);
 __config = require(path.join(__basedir, 'config', (process.env.NODE_ENV || 'development') + '.json'));
