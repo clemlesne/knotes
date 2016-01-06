@@ -12,7 +12,9 @@ footer
 
 	script(src="/js/bottom.js")
 
-	if flash && flash
+	if flash
 		each msgList, msgType in flash
 			each msg in msgList
 				script ntf('#{msgType}', '#{msg}');
+
+		#{resetMsg()}
