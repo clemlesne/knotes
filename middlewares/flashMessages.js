@@ -1,15 +1,20 @@
 module.exports = function flashAddMessage(req, res, next) {
+  var debug = require('debug')('knotes:app');
 
-  res.resetMsg = function() {
-    console.log('Delete flash session...');
+  res.locals.resetMsg = function() {
+    debug('Delete flash session...');
     req.session.flash = undefined;
+  };
+
+  res.initMsg = function() {
+    res.locals.flash = req.session.flash;
   };
 
   res.addMsg = function(context, msg) {
 
     if(context != 'i' && context != 'e') next('Unknown context \'' + context + '\'');
 
-    console.log('flash > ' + '\'' + context + '\'' + ' : ' + '\'' + msg + '\'');
+    debug('flash > ' + '\'' + context + '\'' + ' : ' + '\'' + msg + '\'');
 
     if(typeof req.session.flash === 'undefined' || typeof req.session.flash.i === 'undefined' || typeof req.session.flash.e === 'undefined') {
       req.session.flash = {
@@ -18,20 +23,11 @@ module.exports = function flashAddMessage(req, res, next) {
       };
     }
 
-    if(typeof res.locals.flash === 'undefined') {
-      res.locals.flash = {
-        i: [ ],
-        e: [ ]
-      };
-    }
-
     if(context == 'i') {
       req.session.flash.i.push(msg);
-      res.locals.flash.i = req.session.flash.i;
 
     } else if(context == 'e') {
       req.session.flash.e.push(msg);
-      res.locals.flash.e = req.session.flash.e;
     }
   };
 

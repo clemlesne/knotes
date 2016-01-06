@@ -7,7 +7,7 @@ module.exports = function viewResolver(req, res, next) {
     app.set('views', path.join(__basedir, 'views'));
     app.set('view engine', 'jade');
 
-    res.resetMsg();
+    res.initMsg();
     res.render(name, parameters);
   };
 
