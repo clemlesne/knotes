@@ -24,8 +24,17 @@ body(class="page--#{pageClass}")
 			if navBarActiveId
 				script $("#navbar__entries .navbar__entry:eq(#{navBarActiveId})").addClass('navbar__entry--active');
 
-			div.container
-				div.container__sub
+			section.page__head
+				div.container
+					div.page__head__container
+						div.page__head__text
+							p!= pageName
+						div.page__head__buttons
+							div.button__container
+								block pageButtons
+
+			section.page__content
+				div.container
 					block content
 
 		footer

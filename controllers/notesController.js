@@ -182,6 +182,7 @@ function updateSectionOfNote(req, res, next) {
             noteSection.save(function(err) {
               if(err) return next(err);
 
+              res.addMsgI('Update complete.');
               res.redirect('/notes/' + note._id);
               res.end();
             });

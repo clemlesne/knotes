@@ -3,25 +3,21 @@ block vars
 	- var title = 'Index'
 	- var navBarActiveId = 0
 	- var pageClass = 'note-modifier'
+	- var  pageName = note.name
+
+block pageButtons
+	a(href='/notes/#{note._id}').button Cancel creating
 
 block content
-	section.page__title
-		div.page__title__container
-			div.page__title__text
-				p!= note.name
-			div.page__title__buttons
-				div.button__container
-					a(href='/notes/#{note._id}').button Cancel creating
-
 	section.card.note-modifier__addsection
 		form(action='/notes/#{note._id}/section/create' method='POST').form__container
-			div.card__title
-				p Create section
-				div.button__container
-					button(type='submit') Create
 			div.card__container
-				div.card__content
+				div.card__title
+					p Create section
+					div.button__container
+						button(type='submit') Create
 
+				div.card__content
 					div.form.note-modifier__addsection__top
 						fieldset.form__block
 							legend Title

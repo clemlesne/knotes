@@ -22,7 +22,7 @@
     },
     "redis": {
       "port": "6379",
-      "host": "materialfaces.io",
+      "host": "37.59.36.138",
       "password": "s%c`@h{HZE$bu$$C>Ka=(0oAY[6f|w)>"
     }
   },

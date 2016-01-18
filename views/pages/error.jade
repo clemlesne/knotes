@@ -1,16 +1,21 @@
 extend ../templates/common/layout
+
 block vars
 	- var title = "Error page"
+	- var pageName = error ? 'Error' + error.status : Error
+
+block pageButtons
+	a(onclick='history.back();').button Go back !
 
 block content
-	section.page__title
-		div.page__title__container
-			div.page__title__text
+	section.page__head
+		div.page__head__container
+			div.page__head__text
 				if error
 					p Error #{error.status}
 				else
 					p Error
-			div.page__title__buttons
+			div.page__head__buttons
 				div.button__container
 					a(onclick='history.back();').button Go back !
 
