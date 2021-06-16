@@ -19,7 +19,7 @@
     "hogan.js": "^3.0.2",
     "jade": "^1.11.0",
     "kerberos": "latest",
-    "marked": "^0.3.5",
+    "marked": "^0.8.2",
     "merge": "^1.2.0",
     "mongoose": "^4.2.6",
     "morgan": "~1.6.1",
